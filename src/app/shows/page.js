@@ -12,8 +12,10 @@ function Shows() {
     ];
 
     return (
-        <>
+        <>  
+        <div className="relative bg-midnight-black w-screen h-screen bg-cover">
             <AniflixNav navbarItems={tvShowLinks} />
+        </div>
         </>
     );
 }

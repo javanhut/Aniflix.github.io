@@ -1,9 +1,13 @@
+
+
+
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, NavbarMenu, NavbarMenuItem, Link, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from "@nextui-org/react";
 
 
 function AniflixNav({ navbarItems }) {
     return (
-        <>
+        <>  
+        <div className="bg-cover bg-electric-blue w-full h-full">
             <Navbar>
                 <NavbarBrand>
                     <Link className="text-black" href="/home">Aniflix</Link> 
@@ -20,6 +24,7 @@ function AniflixNav({ navbarItems }) {
                     ))}
                 </NavbarContent>
             </Navbar>
+            </div>
         </>
     );
 }
