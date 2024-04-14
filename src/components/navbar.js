@@ -7,10 +7,9 @@ import { Navbar, NavbarBrand, NavbarContent, NavbarItem, NavbarMenuToggle, Navba
 function AniflixNav({ navbarItems }) {
     return (
         <>  
-        <div className="bg-cover bg-electric-blue w-full h-full">
             <Navbar>
                 <NavbarBrand>
-                    <Link className="text-black" href="/home">Aniflix</Link> 
+                    <Link className="flex justify-start text-black text-6xl border-solid" href="/home">Aniflix</Link> 
                 </NavbarBrand>
                 <NavbarContent>
                     {navbarItems.map((item, index) => (
@@ -24,7 +23,6 @@ function AniflixNav({ navbarItems }) {
                     ))}
                 </NavbarContent>
             </Navbar>
-            </div>
         </>
     );
 }

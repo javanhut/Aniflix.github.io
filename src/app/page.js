@@ -12,11 +12,13 @@ export default function LandingPage() {
   ];
 
   return (<>
-      <div className="relative w-screen h-screen bg-[url('/img/aniflix_banner.jpg')] bg-no-repeat bg-fixed bg-center bg-cover">
-        <div className="bg-black w-screen h-screen lg:bg-opacity-50">
-        <AniflixNav navbarItems={navitems} />
+    <div className="relative bg-[url('/img/aniflix_banner.jpg')] w-screen h-screen  bg-no-repeat bg-fixed bg-center bg-cover">
+      <div className="bg-black w-screen h-screen lg:bg-opacity-50">
+        <div className="relative bg-electric-blue">
+          <AniflixNav navbarItems={navitems} />
         </div>
       </div>
+    </div>
   </>);
 
 }
