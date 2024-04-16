@@ -1,7 +1,7 @@
 "use client";
 import { Card, CardBody, CardHeader } from "@nextui-org/react";
 import AniflixNav from "@/components/navbar";
-import { kaiju_n8, mashle, one_piece_banner, sl_banner, tsukimichi } from "@/images/images";
+import { kaiju_n8, mashle, one_piece_banner, sl_banner, tsukimichi, One_Piece_Anime_Logo} from "@/images/images";
 import CarouselBanner from "@/components/carouselBanner";
 import Image from "next/image";
 
@@ -31,7 +31,7 @@ function Home() {
                         <div className="text-4xl flex text-center font-bold">Most Popular</div>
                     </CardHeader>
                     <CardBody>
-                        <Image />
+                        <Image src={One_Piece_Anime_Logo} />
                     </CardBody>
                 </Card>
             </div>
