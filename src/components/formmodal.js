@@ -1,13 +1,36 @@
 "use client";
 import { Modal, ModalBody, ModalContent, ModalHeader, Button, useDisclosure, Checkbox, Input, ModalFooter, Link } from "@nextui-org/react";
+import { signIn } from "next-auth/react";
 import { Fragment, useCallback, useState } from "react";
+import { useRouter } from "next/navigation";
 
 function FormModal({ form_info, modal_name }) {
+    const router = useRouter();
     const { isOpen, onOpen, onOpenChange } = useDisclosure();
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
     const [password, setPassword] = useState("");
-   
+    const login = useCallback(async () => {
+        try {
+          const result = await signIn('credentials', {
+            email,
+            password,
+            redirect: false,
+            callbackUrl: '/'
+          });
+      
+          if (result.ok) {
+            // Authentication successful, refresh the current page
+            router.push('/home');
+          } else {
+            // Authentication failed, handle the error
+            console.log('Authentication failed');
+          }
+        } catch (error) {
+          console.log(error);
+        }
+      }, [email, password, router]);
+
     const handleSubmit = useCallback(async () => {
         try {
             const response = await fetch('/api/register', {
@@ -17,16 +40,19 @@ function FormModal({ form_info, modal_name }) {
                 },
                 body: JSON.stringify({ email, name, password })
             });
-    
+
             if (response.ok) {
                 console.log("User created successfully");
+                login();
             } else {
                 console.log("User creation failed");
             }
         } catch (error) {
             console.log(error);
         }
-    }, [email, name, password]);
+    }, [email, name, password, login]);
+
+    
     return (
         <>
             <Button onPress={onOpen} color="primary">{modal_name}</Button>
@@ -86,7 +112,7 @@ function FormModal({ form_info, modal_name }) {
                             </ModalBody>
                             <ModalFooter>
                                 <Button onPress={() => onOpenChange(false)} color="error" variant="flat">{info.close}</Button>
-                                <Button color="primary" onPress={handleSubmit}>{info.buttonAction}</Button>
+                                <Button color="primary" onPress={info.buttonAction ==="Login" ? login : handleSubmit}>{info.buttonAction}</Button>
                             </ModalFooter>
                         </Fragment>
                     ))}

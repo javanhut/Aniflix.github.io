@@ -32,4 +32,27 @@ export async function POST(request) {
     console.log(error);
     return NextResponse.json({ message: "Couldn't connect to server" }, { status: 500 });
   }
-}
+};
+
+export async function GET(request) {
+  try{
+    const {email, password} = await request.json();
+    const existingUser = await prismadb.user.findUnique({
+      where: { email },
+    });
+    if(!existingUser){
+      return NextResponse.json({ message: "User does not exist" }, { status: 422 });
+    }
+    else{
+      const isCorrectPassword = await bcrypt.compare(password, existingUser.hashedPassword);
+      if(!isCorrectPassword){
+        return NextResponse.json({ message: "Incorrect password" }, { status: 422 });
+      }
+      return NextResponse.json({ message: "User logged in", user: existingUser }, { status: 200 });
+    }
+  } catch(error){
+    console.log(error);
+    return NextResponse.json({ message: "Couldn't connect to server" }, { status: 500 });
+  }
+
+};
