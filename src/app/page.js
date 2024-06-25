@@ -1,6 +1,6 @@
 import Image from "next/image";
 import AniflixNav from "../components/navbar";
-import FormModal from "@/components/formmodal";
+import FormModal from "../components/formmodal";
 
 export default function LandingPage() {
 

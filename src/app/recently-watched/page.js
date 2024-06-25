@@ -1,4 +1,4 @@
-import AniflixNav from "@/components/navbar";
+import AniflixNav from '../components/navbar'
 
 export default function RecentlyWatched() {
     const recently_watched_nav = [{}];

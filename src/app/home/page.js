@@ -1,11 +1,12 @@
 "use client";
 import { Card, CardBody, CardHeader } from "@nextui-org/react";
-import AniflixNav from "@/components/navbar";
-import { kaiju_n8, mashle, one_piece_banner, sl_banner, tsukimichi, One_Piece_Anime_Logo, solo_leveling, tsukimichi_moonlit, mmm, slimerimuru} from "@/images/images";
-import CarouselBanner from "@/components/carouselBanner";
+import Account from '../components/accountSettings'
+import AniflixNav from '../components/navbar'
+import { kaiju_n8, mashle, one_piece_banner, sl_banner, tsukimichi, One_Piece_Anime_Logo, solo_leveling, tsukimichi_moonlit, mmm, slimerimuru} from "../images/images";
+import CarouselBanner from '../components/carouselBanner'
 import Image from "next/image";
-import CardList from "@/components/cardList";
-import { Carousel, Container, Row } from "react-bootstrap";
+import CardList from '../components/cardList'
+import { Carousel, Container, Row } from 'react-bootstrap'
 
 function Home() {
     const home_nav_items = [
@@ -13,6 +14,7 @@ function Home() {
         { name: "Movies", link: "movies", styling: "", lstyle: "" },
         { name: "New Releases", link: "new-releases", styling: "", lstyle: "text-black" },
         { name: "Recently Watched", link: "recently-watched", styling: "", lstyle: "" },
+        {component: <Account account_name="User" image=""/>}
     ];
     const images_carousel_items = [
         { src: kaiju_n8, caption: "Kaiju no.8", description: "" },

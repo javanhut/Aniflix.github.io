@@ -1,4 +1,4 @@
-import AniflixNav from "@/components/navbar";
+import AniflixNav from '../components/navbar'
 
 export default function NewReleases() {
     const new_releases_nav = [{}];

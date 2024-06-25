@@ -1,6 +1,6 @@
 "use client";
-import DropdownMenuComponent from "@/components/dropdown";
-import AniflixNav from "@/components/navbar";
+import DropdownMenuComponent from '../components/dropdown'
+import AniflixNav from '../components/navbar'
 
 
 function Movies() {

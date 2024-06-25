@@ -49,6 +49,8 @@ export async function GET(request) {
         return NextResponse.json({ message: "Incorrect password" }, { status: 422 });
       }
       return NextResponse.json({ message: "User logged in", user: existingUser }, { status: 200 });
+
+      
     }
   } catch(error){
     console.log(error);
